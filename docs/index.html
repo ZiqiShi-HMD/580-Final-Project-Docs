@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<style>
+  body {
+    padding: 100px;
+    width: 1000px;
+    margin: auto;
+    text-align: left;
+    font-weight: 300;
+    font-family: 'Open Sans', sans-serif;
+    color: #121212;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+  figure {
+    display: inline-block;
+    margin: 20px; /* adjust as needed */
+  }
+  figure img {
+      vertical-align: top;
+  }
+    figure figcaption {
+      text-align: center;
+  }
+</style>
+<title>CSCI 580 Report</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro" rel="stylesheet">
+</head>
+
+
+<body>
+
+<h1 align="middle">CSCI 580 Final Project Report</h1>
+<h2 align="middle">Kerui Bao, Sizhe Han, Ziqi Shi, Jiawei Wang</h2>
+
+<br><br>
+
+<div>
+    <h1 align = "left" > Tilt Shift Camera </h1>
+    <p> A shader that blurs parts of the scene where depth is close to the near or far plane, creating a tilt-shift camera like effect that works best in games with far away sceneries. Allows User edits of the blur ranage and strength through reshade GUI. </p>
+    <a href="shader_1.html"> Additional Details </a>
+    <br>
+    <figure>
+      <img src="resources/images/TiltShift.png" align="middle" width="750px" />
+      <figcaption align = "middle">Code Diagram</figcaption>
+    </figure>
+    <br>
+</div>
+
+<div>
+    <h1 align = "left" > Additional Scene Light </h1>
+    <p> A shader that adds a user-defined lightsource that would add an additional layer of lighting to all world objects as if they had Phong texture. Allows user edits to change properties of the light as well as the phong material through ReShade GUI.  </p>
+    <figure>
+      <img src="resources/images/Postprocessing_Scene_Light.png" align="middle" width="750px" />
+      <figcaption align = "middle">Code Diagram</figcaption>
+    </figure>
+</div>
+
+<div>
+  <h1 align = "left" > Ambient Occlusion </h1>
+  <p> A shader that makes use of the depth buffer and a predefined fractal texture to render a fog-like effect in game scene. Fog becomes denser the greater a pixel's depth is. Allows user edits to change the depth at which backbuffer completely fades. </p>
+  <figure>
+    <img src="resources/images/Ambient_Occlusion.png" align="middle" width="750px" />
+    <figcaption align = "middle">Code Diagram</figcaption>
+  </figure>
+</div>
+
+<div>
+  <h1 align = "left" > God Ray </h1>
+  <p> A shader that creates a god ray effect that would cast rays from bright scene objects by repeatedly sampling pixel towards a user defined direction. Depth is used as a multplicative factor in the sampling strength to capture decay over distance from the camera as well as occulsion. Allows user edits to ray cast direction, sample rates, and ray color.</p>
+  <figure>
+    <img src="resources/images/GodRay.png" align="middle" width="750px" />
+    <figcaption align = "middle">Code Diagram</figcaption>
+  </figure>
+</div>

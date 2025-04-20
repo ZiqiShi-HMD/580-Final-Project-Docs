@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<style>
+  body {
+    padding: 100px;
+    width: 1000px;
+    margin: auto;
+    text-align: left;
+    font-weight: 300;
+    font-family: 'Open Sans', sans-serif;
+    color: #121212;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+  figure {
+    display: inline-block;
+    margin: 20px; /* adjust as needed */
+}
+figure img {
+    vertical-align: top;
+}
+  figure figcaption {
+    text-align: center;
+}
+</style>
+<title>CSCI 580 Report</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro" rel="stylesheet">
+</head>
+
+
+<body>
+
+<h1 align="middle">Tilt Shift Camera Code Breakdown</h1>
+<h2 align="middle">Kerui Bao, Sizhe Han, Ziqi Shi, Jiawei Wang</h2>
+
+<br><br>
+
+<div align="middle">
+    <figure>
+      <img src="resources/images/Shader1_1.png" align="middle" width="750px" />
+      <figcaption align = "middle">Figure 1. Basic UI setting </figcaption>
+    </figure>
+    <br>
+    <p></p>
+</div>
+
+<div align="middle">
+    <figure>
+      <img src="resources/images/Shader1_2.png" align="middle" width="750px" />
+      <figcaption align = "middle">Figure 2. The Kernel Matrix for Gaussian blur </figcaption>
+    </figure>
+    <br>
+    <p></p>
+</div>
+
+<div align="middle">
+    <figure>
+      <img src="resources/images/Shader1_3.png" align="middle" width="750px" />
+      <figcaption align = "middle">Figure 3. Using Sobel edge detection approaching edge strength </figcaption>
+    </figure>
+    <p align = "left">Use tex2D to sample RGB information from the back buffer. Offset the sampling positions by the texel size to construct a 6×6 matrix, then multiply it with the Gx and Ga matrices to obtain the basic edge color values.</p>
+    <br>
+</div>
+
+<div align="middle">
+    <figure>
+      <img src="resources/images/Shader1_4.png" align="middle" width="750px" />
+      <figcaption align = "middle">Figure 4. Get depth value </figcaption>
+    </figure>
+    <p align = "left">texcoord.y = 1.0 - texcoord.y is used to flip the image vertically, because the origin (0,0) is on the top left corner.</p>
+    <br>
+</div>
+
+<div align="middle">
+    <figure>
+      <img src="resources/images/Shader1_5.png" align="middle" width="750px" />
+      <figcaption align = "middle">Figure 5. Depth Color </figcaption>
+    </figure>
+    <p align = "left">Set three different thresholds based on the image depth and assign distinct colors to each range. This allows users to intuitively understand the depth distribution within the image.</p>
+    <br>
+</div>
+
+<div align="middle">
+    <figure>
+      <img src="resources/images/Shader1_6.png" align="middle" width="750px" />
+      <figcaption align = "middle">Figure 6. Tilt Shift Camera </figcaption>
+    </figure>
+    <p align = "left">texcoord.y = 1.0 - texcoord.y is used to flip the image vertically, because the origin (0,0) is on the top left corner.</p>
+    <br>
+</div>
+
+<div align="middle">
+    <figure>
+      <img src="resources/images/Shader1_7.png" align="middle" width="750px" />
+      <figcaption align = "middle">Figure 7. Main Pass </figcaption>
+    </figure>
+    <p align = "left">Follow the users’ selection to choose with effect they want to get.</p>
+    <br>
+</div>
+
+<div align="middle">
+    <figure>
+      <img src="resources/images/Shader1_8.png" align="middle" width="750px" />
+      <figcaption align = "middle">Figure 8. Combination </figcaption>
+    </figure>
+    <p align = "left">Combine the blurred regions with the color-only regions to facilitate easier debugging.</p>
+    <br>
+</div>
